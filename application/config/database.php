@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_kuncntr',
+	'hostname' => '104.28.11.198',
+	'username' => 'kuntest_kunroot',
+	'password' => 'tze=Ly%@_!gj',
+	'database' => 'kuntest_dbkuncntr',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
