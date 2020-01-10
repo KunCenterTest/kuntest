@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '104.28.11.198',
+	'hostname' => '103.234.210.68',
 	'username' => 'kuntest_kunroot',
 	'password' => 'tze=Ly%@_!gj',
 	'database' => 'kuntest_dbkuncntr',
