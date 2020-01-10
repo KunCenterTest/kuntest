@@ -1,0 +1,180 @@
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff; }
+  .preloader .cssload-speeding-wheel {
+    position: absolute;
+    top: calc(50% - 3.5px);
+    left: calc(50% - 3.5px); }
+
+/*******************
+/*Top bar
+*******************/
+.topbar {
+  background: #9A0000; }
+  .topbar .navbar-header {
+    background: rgba(0, 0, 0, 0.05); }
+  .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+    display: none; }
+  .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8); }
+  .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
+    color: #ffffff !important; }
+    .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
+      color: rgba(255, 255, 255, 0.8) !important; }
+
+/*******************
+/*General Elements
+*******************/
+a.link:hover, a.link:focus {
+  color: #9A0000 !important; }
+
+.bg-theme {
+  background-color: #9A0000 !important; }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #9A0000;
+  border-color: #9A0000; }
+
+.right-sidebar .rpanel-title {
+  background: #9A0000; }
+
+.stylish-table tbody tr:hover, .stylish-table tbody tr.active {
+  border-left: 4px solid #9A0000; }
+
+.text-themecolor {
+  color: #9A0000 !important; }
+
+.profile-tab li a.nav-link.active,
+.customtab li a.nav-link.active {
+  border-bottom: 2px solid #9A0000;
+  color: #9A0000; }
+
+.profile-tab li a.nav-link:hover,
+.customtab li a.nav-link:hover {
+  color: #9A0000; }
+
+/*******************
+/*Buttons
+*******************/
+.btn-themecolor,
+.btn-themecolor.disabled {
+  background: #9A0000;
+  color: #ffffff;
+  border: 1px solid #9A0000; }
+  .btn-themecolor:hover,
+  .btn-themecolor.disabled:hover {
+    background: #9A0000;
+    opacity: 0.7;
+    border: 1px solid #9A0000; }
+  .btn-themecolor.active, .btn-themecolor:focus,
+  .btn-themecolor.disabled.active,
+  .btn-themecolor.disabled:focus {
+    background: #028ee1; }
+
+/*******************
+/*sidebar navigation
+*******************/
+.sidebar-nav {
+  background: #fff; }
+  .sidebar-nav ul li a {
+    color: #252525; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+      color: #D60000; }
+    .sidebar-nav ul li a.active {
+      color: #263238; }
+  .sidebar-nav ul li.nav-small-cap {
+    color: #99abb4; }
+  .sidebar-nav > ul > li.active > a,
+  .sidebar-nav > ul > li.active:hover > a {
+    color: #ffffff;
+    background: #D60000; }
+    .sidebar-nav > ul > li.active > a i,
+    .sidebar-nav > ul > li.active:hover > a i {
+      color: #ffffff; }
+    .sidebar-nav > ul > li.active > a:after,
+    .sidebar-nav > ul > li.active:hover > a:after {
+      border-color: #ffffff; }
+  .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+    color: #D60000; }
+  .sidebar-nav > ul > li > a i {
+    color: #99abb4; }
+  .sidebar-nav > ul > li > a.active {
+    font-weight: 400;
+    background: #ffffff;
+    color: #9A0000; }
+
+.card-no-border .sidebar-nav > ul > li > a.active {
+  color: #ffffff;
+  background: #D60000; }
+  .card-no-border .sidebar-nav > ul > li > a.active i {
+    color: #ffffff; }
+  .card-no-border .sidebar-nav > ul > li > a.active:after {
+    border-color: #ffffff; }
+/* custom */
+.form-control::-webkit-input-placeholder { color: #d4d4d4; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #d4d4d4; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #d4d4d4; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #d4d4d4; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #d4d4d4; }  /* Microsoft Edge */
+
+.submenu{
+  background: #e3e3e3;
+}
+.icon-submenu{
+  position: absolute;
+  right: 0;
+}
+.alert-cus{
+position: absolute;
+top: 20px;
+width: 100%;
+background: rgba(154, 0, 0, 0.8);
+color: #fff;
+display: block;
+opacity: 1;
+animation-duration: 9s;
+animation: opac 5s forwards;
+-webkit-transition: 5s;
+-moz-transition: 5s;
+-o-transition: 5s;
+transition: 5s;
+}
+@keyframes opac {
+  70% {
+    top: 20px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
