@@ -7,6 +7,8 @@ date_default_timezone_set("Asia/Jakarta");
 
 $config['base_url'] = 'http://kuntesting.herokuapp.com/';
 
+$config['sess_save_path'] = sys_get_temp_dir();
+
 $config['index_page'] = '';
 
 $config['uri_protocol']	= 'REQUEST_URI';
