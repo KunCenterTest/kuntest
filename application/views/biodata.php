@@ -22,7 +22,7 @@ require_once('header.php');
                 <h3>Silahkan lengkapi biodata anda sebelum melanjutkan.</h3>
                 <form action="<?php echo base_url('biodata/update'); ?>" method="post">
                     <div class="row mb-2">
-                        <div class="col-2">
+                        <div class="col-4">
                             <img width="100%" src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
                         </div>
                     </div>
