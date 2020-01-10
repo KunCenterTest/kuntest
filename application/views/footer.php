@@ -32,7 +32,7 @@
 
     <?php if (isset($recaptcha) && $recaptcha == "ON") { ?>
         <!-- recaptcha -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LfRNswUAAAAAJguQmQgnfx1suGLIw4WlVls97N9"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Le9E84UAAAAAE-Va-h5gIIZKLq3aFMgX3pqzeT4"></script>
     <?php } ?>
     <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
     <script>
@@ -80,7 +80,7 @@
                 // var email = $('#email').val();
 
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('6LfRNswUAAAAAJguQmQgnfx1suGLIw4WlVls97N9', {
+                    grecaptcha.execute('6Le9E84UAAAAAE-Va-h5gIIZKLq3aFMgX3pqzeT4', {
                         action: 'login'
                     }).then(function(token) {
                         $('#form-login').prepend('<input type="hidden" name="token" value="' + token + '">');
@@ -95,7 +95,7 @@
                 // var email = $('#email').val();
 
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('6LfRNswUAAAAAJguQmQgnfx1suGLIw4WlVls97N9', {
+                    grecaptcha.execute('6Le9E84UAAAAAE-Va-h5gIIZKLq3aFMgX3pqzeT4', {
                         action: 'registration'
                     }).then(function(token) {
                         $('#form-regis').prepend('<input type="hidden" name="token" value="' + token + '">');

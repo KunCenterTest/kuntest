@@ -8,7 +8,7 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_login', 'm');
-		define("RECAPTCHA_V3_SECRET_KEY", '6LfRNswUAAAAAHiZCkAeGgQCs_DVnY0836ZPLtbw');
+		define("RECAPTCHA_V3_SECRET_KEY", '6Le9E84UAAAAAPYXHMBHYpSYqPE2aY18Ur37UMpt');
     }
 
     public function index()
