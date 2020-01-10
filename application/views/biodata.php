@@ -25,6 +25,9 @@ require_once('header.php');
                         <div class="col-4">
                             <img width="100%" src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
                         </div>
+                        <div class="col">
+                            <div class="upload"></div>
+                        </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col">

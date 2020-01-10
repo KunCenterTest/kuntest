@@ -30,6 +30,8 @@
     <script src="<?php echo base_url('assets/js/skrollr.min.js'); ?>"></script>
     <!-- bs datepicker -->
     <script src="<?php echo base_url('assets/plugins/bs-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/formstone/js/core.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/formstone/js/upload.js'); ?>"></script>
 
     <?php if (isset($recaptcha) && $recaptcha == "ON") { ?>
         <!-- recaptcha -->
@@ -106,7 +108,7 @@
                 });
             });
 
-            $(".target").upload({
+            $(".upload").upload({
                 action: "upload.php"
             });
         });
