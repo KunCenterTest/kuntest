@@ -16,17 +16,21 @@ require_once('header.php');
                 </div>
             <?php } ?>
             <div class="col-md-6">
-                <?php if ($biodata['emailstat'] == 'OFF') { ?>
-                    <span>Anda belum konfirmasi alamat email anda. <a href="#">Konfirmasi email sekarang</a>!</span>
-                <?php } ?>
                 <h3>Silahkan lengkapi biodata anda sebelum melanjutkan.</h3>
                 <form action="<?php echo base_url('biodata/update'); ?>" method="post">
                     <div class="row mb-2">
-                        <div class="col-4">
+                        <div class="col-4 p-0">
                             <img width="100%" src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
                         </div>
                         <div class="col">
                             <div class="upload"></div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <span class="text-danger">
+                                <small>Dimensi gambar harus 512 x 512 pixel. | Format file harus jpg, png, atau gif.</small>
+                            </span>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -85,7 +89,10 @@ require_once('header.php');
                     </div>
                     <button type="submit" class="btn btn-block btn-danger">Update Biodata</button>
                 </form>
-                <h3 style="margin-top: 50px;">Form ubah password.</h3>
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid my-5" src="<?php echo base_url('assets/img/bg-hero-panel.png'); ?>" alt="">
+                <h3>Form ubah password.</h3>
                 <form action="<?php echo base_url('biodata/ubah_pwd'); ?>" method="post">
 
                     <div class="row mb-2">
@@ -100,9 +107,6 @@ require_once('header.php');
                     </div>
                     <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Yakin mengubah password?')">Ubah Password</button>
                 </form>
-            </div>
-            <div class="col-md-6">
-                <img class="img-fluid" src="<?php echo base_url('assets/img/bg-hero-panel.png'); ?>" alt="">
             </div>
         </div>
         <div style="margin-top: 180px;" class="row align-items-center">

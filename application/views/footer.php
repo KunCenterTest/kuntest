@@ -109,7 +109,8 @@
             });
 
             $(".upload").upload({
-                action: "upload.php"
+                action: "upload.php",
+                label: "Tarik dan arahkan file, atau klik untuk pilih gambar."
             });
         });
     </script>
