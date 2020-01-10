@@ -18,7 +18,7 @@
     <!-- <link rel="stylesheet" href="<?php //echo base_url('assets/vendors/nice-select/nice-select.css'); ?>"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/plugins/bs-datepicker/css/bootstrap-datepicker.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/plugins/formstone/css/upload.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/plugins/formstone/css/theme/light/upload.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/plugins/formstone/css/themes/light/upload.css'); ?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 </head>
