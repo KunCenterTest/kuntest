@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 date_default_timezone_set("Asia/Jakarta");
 
-$config['base_url'] = 'http://localhost/git/kuntest/';
+// $config['base_url'] = 'http://localhost/git/kuntest/';
+
+$config['base_url'] = 'http://kuntesting.herokuapp.com/';
 
 $config['index_page'] = '';
 
