@@ -16,11 +16,16 @@ require_once('header.php');
                 </div>
             <?php } ?>
             <div class="col-md-6">
-                <?php if($biodata['emailstat'] == 'OFF'){ ?>
-                <span>Anda belum konfirmasi alamat email anda. <a href="#">Konfirmasi email sekarang</a>!</span>
+                <?php if ($biodata['emailstat'] == 'OFF') { ?>
+                    <span>Anda belum konfirmasi alamat email anda. <a href="#">Konfirmasi email sekarang</a>!</span>
                 <?php } ?>
                 <h3>Silahkan lengkapi biodata anda sebelum melanjutkan.</h3>
                 <form action="<?php echo base_url('biodata/update'); ?>" method="post">
+                    <div class="row mb-2">
+                        <div class="col-2">
+                            <img src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
+                        </div>
+                    </div>
                     <div class="row mb-2">
                         <div class="col">
                             <label><small>Nama Lengkap</small></label>
@@ -57,9 +62,15 @@ require_once('header.php');
                         <div class="col">
                             <label><small>Warga Kenegaraan</small></label>
                             <select class="form-control" name="kenegaraan" required>
-                                <option value="" <?php if($biodata['kenegaraan'] === ""){echo 'selected'; } ?>>PILIH KENEGARAAN</option>
-                                <option value="WNI" <?php if($biodata['kenegaraan'] === "WNI"){echo 'selected'; } ?>>WNI</option>
-                                <option value="WNA" <?php if($biodata['kenegaraan'] === "WNA"){echo 'selected'; } ?>>WNA</option>
+                                <option value="" <?php if ($biodata['kenegaraan'] === "") {
+                                                        echo 'selected';
+                                                    } ?>>PILIH KENEGARAAN</option>
+                                <option value="WNI" <?php if ($biodata['kenegaraan'] === "WNI") {
+                                                        echo 'selected';
+                                                    } ?>>WNI</option>
+                                <option value="WNA" <?php if ($biodata['kenegaraan'] === "WNA") {
+                                                        echo 'selected';
+                                                    } ?>>WNA</option>
                             </select>
                         </div>
                     </div>
@@ -73,7 +84,7 @@ require_once('header.php');
                 </form>
                 <h3 style="margin-top: 50px;">Form ubah password.</h3>
                 <form action="<?php echo base_url('biodata/ubah_pwd'); ?>" method="post">
-                    
+
                     <div class="row mb-2">
                         <div class="col">
                             <label><small>Password Baru</small></label>
