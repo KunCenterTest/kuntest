@@ -30,8 +30,7 @@
     <script src="<?php echo base_url('assets/js/skrollr.min.js'); ?>"></script>
     <!-- bs datepicker -->
     <script src="<?php echo base_url('assets/plugins/bs-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/formstone/js/core.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/formstone/js/upload.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/bs4-toggle/bootstrap4-toggle.min.js'); ?>"></script>
 
     <?php if (isset($recaptcha) && $recaptcha == "ON") { ?>
         <!-- recaptcha -->
@@ -115,6 +114,74 @@
                     });;
                 });
             });
+
+            // Proses Input Kuisioner
+            var lokasi = $('#lokasi');
+            var tgldp = $('#dp');
+            var parcat = $('.parcat');
+			var subparcat = $('.subparcat');
+
+            $('.dspn').css('display', 'none');
+
+            lokasi.change(function () {
+                if ($(this).val() == '') {
+                    tgldp.prop('disabled', true);
+                } else {
+                    tgldp.prop('disabled', false);
+                }
+            });
+
+            tgldp.change(function () {
+                if($(this).val()!=''){
+					parcat.bootstrapToggle('enable');
+				}
+            });
+			
+			parcat.change(function(){
+				var classChild = $(this).attr('data-child');
+				if($(this).prop('checked')){
+					if($('.'+classChild).attr('data-toggle')){
+						$('.'+classChild).bootstrapToggle('enable');
+					}					
+					else {
+						$('.'+classChild).val('');
+						$('.'+classChild).prop('disabled', false);
+					}
+				}
+				else {
+					if($('.'+classChild).attr('data-toggle')){
+						$('.'+classChild).prop('checked', false).change();
+						$('.'+classChild).bootstrapToggle('disable');
+					}					
+					else {
+						$('.'+classChild).val('');
+						$('.'+classChild).prop('disabled', true);
+					}
+				}
+			});
+			
+			subparcat.change(function(){
+				var classChild = $(this).attr('data-child');
+				if($(this).prop('checked')){
+					if($('.'+classChild).attr('data-toggle')){
+						$('.'+classChild).bootstrapToggle('enable');
+					}
+					else {
+						$('.'+classChild).val('');
+						$('.'+classChild).prop('disabled', false);
+					}
+				}
+				else {
+					if($('.'+classChild).attr('data-toggle')){
+						$('.'+classChild).prop('checked', false).change();
+						$('.'+classChild).bootstrapToggle('disable');
+					}					
+					else {
+						$('.'+classChild).val('');
+						$('.'+classChild).prop('disabled', true);
+					}
+				}
+			});
         });
     </script>
     </body>
