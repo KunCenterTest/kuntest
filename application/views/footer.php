@@ -52,6 +52,14 @@
                 this.value = this.value.toLowerCase();
             });
 
+            $('#inputGroupFile').on('change', function() {
+                //get the file name
+                // var fileName = $(this).val();
+                var fileName = $(this).val().replace('C:\\fakepath\\', " ");
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            });
+
             $("#emailvld1").blur(function() {
                 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 var str = $("#emailvld1").val();
@@ -106,11 +114,6 @@
                         $('#form-regis').unbind('submit').submit();
                     });;
                 });
-            });
-
-            $(".upload").upload({
-                action: "upload.php",
-                label: "Tarik dan arahkan file, atau klik untuk pilih gambar."
             });
         });
     </script>

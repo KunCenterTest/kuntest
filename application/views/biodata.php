@@ -17,22 +17,32 @@ require_once('header.php');
             <?php } ?>
             <div class="col-md-6">
                 <h3>Silahkan lengkapi biodata anda sebelum melanjutkan.</h3>
+                <form action="<?php echo base_url('biodata/update_pp'); ?>" method="post" enctype="multipart/form-data">
+                    <div class="row mb-2">
+                        <div class="col-4 my-2">
+                            <?php if ($biodata['pp'] == "") { ?>
+                                <img width="100%" src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
+                            <?php } else { ?>
+                                <img width="100%" src="<?php echo base_url('assets/img/upload/' . $biodata['pp']); ?>" alt="no-image">
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="berkas" id="inputGroupFile" aria-describedby="inputGroupFileAddon04">
+                                    <label class="custom-file-label" for="inputGroupFile">Pilih Photo Close Up</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-danger" type="submit" id="inputGroupFileAddon">Upload</button>
+                                </div>
+                            </div>
+                            <small class="text-danger">Dimensi gambar harus 512 x 512 pixel. | Format file harus jpg, png, atau gif.</small>
+                        </div>
+                    </div>
+                </form>
                 <form action="<?php echo base_url('biodata/update'); ?>" method="post">
-                    <div class="row mb-2">
-                        <div class="col-4 p-0">
-                            <img width="100%" src="<?php echo base_url('assets/img/upload/no-image.png'); ?>" alt="no-image">
-                        </div>
-                        <div class="col">
-                            <div class="upload"></div>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col">
-                            <span class="text-danger">
-                                <small>Dimensi gambar harus 512 x 512 pixel. | Format file harus jpg, png, atau gif.</small>
-                            </span>
-                        </div>
-                    </div>
                     <div class="row mb-2">
                         <div class="col">
                             <label><small>Nama Lengkap</small></label>
@@ -92,9 +102,8 @@ require_once('header.php');
             </div>
             <div class="col-md-6">
                 <img class="img-fluid my-5" src="<?php echo base_url('assets/img/bg-hero-panel.png'); ?>" alt="">
-                <h3>Form ubah password.</h3>
+                <h3 class="mt-4">Form ubah password.</h3>
                 <form action="<?php echo base_url('biodata/ubah_pwd'); ?>" method="post">
-
                     <div class="row mb-2">
                         <div class="col">
                             <label><small>Password Baru</small></label>

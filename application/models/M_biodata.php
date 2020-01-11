@@ -24,4 +24,11 @@ class M_biodata extends CI_Model
 		$this->db->update($table, $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
+
+	function update_pp($table, $data, $email)
+	{
+		$this->db->where('kunct_email', $email);
+		$this->db->update($table, $data);
+		return ($this->db->affected_rows() != 1) ? false : true;
+	}
 }

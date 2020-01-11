@@ -9,7 +9,7 @@ class Biodata extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_biodata', 'm');
 		if ($this->session->userdata('status') != "login") {
-			redirect(base_url("login"));
+			redirect(base_url("auth"));
 		}
 	}
 
@@ -24,6 +24,7 @@ class Biodata extends CI_Controller
 				'alamat' => $d->alamat,
 				'tempat_lahir' => $d->tempat_lahir,
 				'tgl_lahir' => date('d-m-Y', strtotime($d->tgl_lahir)),
+				'pp' => $d->profile_pic,
 				'pekerjaan' => $d->pekerjaan,
 				'gol_darah' => $d->gol_darah,
 				'email' => $d->kunct_email,
@@ -92,6 +93,38 @@ class Biodata extends CI_Controller
 		} else {
 			$this->session->set_flashdata('res', 'Password tidak sama!');
 			redirect('biodata');
+		}
+	}
+
+	function update_pp()
+	{
+		$email = $this->session->userdata('email');
+		$config['upload_path']          = 'assets/img/upload/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 2000;
+		$config['max_width']            = 512;
+		$config['max_height']           = 512;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('berkas')) {
+			$error = array('error' => $this->upload->display_errors());
+			$derror = $error['error'];
+			$this->session->set_flashdata('res', $derror);
+			redirect('biodata');
+		} else {
+			$data = $this->upload->data();
+			$fname = array(
+				'profile_pic' => $data['file_name']
+			);
+			$upload = $this->m->update_pp("user", $fname, $email);
+			if ($upload == true) {
+				$this->session->set_flashdata('res', 'Berhasil upload');
+				redirect('biodata');
+			} else {
+				$this->session->set_flashdata('res', 'Gagal upload');
+				redirect('biodata');
+			}
 		}
 	}
 }
