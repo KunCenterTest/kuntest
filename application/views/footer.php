@@ -119,11 +119,11 @@
             var lokasi = $('#lokasi');
             var tgldp = $('#dp');
             var parcat = $('.parcat');
-			var subparcat = $('.subparcat');
+            var subparcat = $('.subparcat');
 
             $('.dspn').css('display', 'none');
 
-            lokasi.change(function () {
+            lokasi.change(function() {
                 if ($(this).val() == '') {
                     tgldp.prop('disabled', true);
                 } else {
@@ -131,57 +131,87 @@
                 }
             });
 
-            tgldp.change(function () {
-                if($(this).val()!=''){
-					parcat.bootstrapToggle('enable');
-				}
+            tgldp.change(function() {
+                if ($(this).val() != '') {
+                    parcat.bootstrapToggle('enable');
+                }
             });
-			
-			parcat.change(function(){
-				var classChild = $(this).attr('data-child');
-				if($(this).prop('checked')){
-					if($('.'+classChild).attr('data-toggle')){
-						$('.'+classChild).bootstrapToggle('enable');
-					}					
-					else {
-						$('.'+classChild).val('');
-						$('.'+classChild).prop('disabled', false);
-					}
-				}
-				else {
-					if($('.'+classChild).attr('data-toggle')){
-						$('.'+classChild).prop('checked', false).change();
-						$('.'+classChild).bootstrapToggle('disable');
-					}					
-					else {
-						$('.'+classChild).val('');
-						$('.'+classChild).prop('disabled', true);
-					}
-				}
-			});
-			
-			subparcat.change(function(){
-				var classChild = $(this).attr('data-child');
-				if($(this).prop('checked')){
-					if($('.'+classChild).attr('data-toggle')){
-						$('.'+classChild).bootstrapToggle('enable');
-					}
-					else {
-						$('.'+classChild).val('');
-						$('.'+classChild).prop('disabled', false);
-					}
-				}
-				else {
-					if($('.'+classChild).attr('data-toggle')){
-						$('.'+classChild).prop('checked', false).change();
-						$('.'+classChild).bootstrapToggle('disable');
-					}					
-					else {
-						$('.'+classChild).val('');
-						$('.'+classChild).prop('disabled', true);
-					}
-				}
-			});
+
+            parcat.change(function() {
+                if ($(this).attr('data-child')) {
+                    var classChild = $(this).attr('data-child');
+                    var classUncheck = $(this).attr('data-uncheck');
+                    if ($('.' + classChild).length > 0) {
+                        if ($(this).prop('checked')) {
+                            $('.' + classChild).each(function() {
+                                if ($(this).attr('data-toggle')) {
+                                    $(this).bootstrapToggle('enable');
+                                } else {
+                                    $(this).val('');
+                                    $(this).prop('disabled', false);
+                                }
+                            });
+                        } else {
+                            $('.' + classChild).each(function() {
+                                if ($(this).attr('data-toggle')) {
+                                    $(this).prop('checked', false).change();
+                                    $(this).bootstrapToggle('disable');
+                                } else {
+                                    $(this).val('');
+                                    $(this).prop('disabled', true);
+                                }
+                            });
+                        }
+                    }
+                    if ($(this).prop('checked')) {
+                        $('.' + classUncheck).each(function() {
+                            $(this).prop('disabled', true);
+                        });
+                    } else {
+                        $('.' + classUncheck).each(function() {
+                            $(this).prop('disabled', false);
+                        });
+                    }
+                }
+            });
+
+            subparcat.change(function() {
+                if ($(this).attr('data-child')) {
+                    var classChild = $(this).attr('data-child');
+                    var classUncheck = $(this).attr('data-uncheck');
+                    if ($('.' + classChild).length > 0) {
+                        if ($(this).prop('checked')) {
+                            $('.' + classChild).each(function() {
+                                if ($(this).attr('data-toggle')) {
+                                    $(this).bootstrapToggle('enable');
+                                } else {
+                                    $(this).val('');
+                                    $(this).prop('disabled', false);
+                                }
+                            });
+                        } else {
+                            $('.' + classChild).each(function() {
+                                if ($(this).attr('data-toggle')) {
+                                    $(this).prop('checked', false).change();
+                                    $(this).bootstrapToggle('disable');
+                                } else {
+                                    $(this).val('');
+                                    $(this).prop('disabled', true);
+                                }
+                            });
+                        }
+                    }
+                    if ($(this).prop('checked')) {
+                        $('.' + classUncheck).each(function() {
+                            $(this).prop('disabled', true);
+                        });
+                    } else {
+                        $('.' + classUncheck).each(function() {
+                            $(this).prop('disabled', false);
+                        });
+                    }
+                }
+            });
         });
     </script>
     </body>

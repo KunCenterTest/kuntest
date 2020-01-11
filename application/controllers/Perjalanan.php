@@ -41,30 +41,32 @@ class Perjalanan extends CI_Controller
 		$html = "";
 		$no = 0;
 		$tab = 1;
+		$uc = 0;
 		$parent = $this->m->getkuis(0);
 		if(count($parent) > 0){
 		foreach($parent as $kp => $p){
+			$uc++;
 			$no++;
 			if($p->kuis_tipe == 'CHECK'){
 				$html .= '<div class="col-10 mt-4">'."\n";
 				$html .= '<label>'.$no.'. '.$p->title.'</label>'."\n";
-				$html .= '<input type="hidden" name="kuis[]" value="TIDAK">'."\n";
+				$html .= '<input class="uncheck'.$uc.$kp.'" type="hidden" name="kuis['.$p->kunct_idkuis.']" value="TIDAK">'."\n";
 				$html .= '</div>'."\n";
 				$html .= '<div class="col mt-4">'."\n";
-				$html .= '<input type="checkbox" class="cus-toggle parcat" data-child="child'.$kp.'" name="kuis[]" value="YA" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
+				$html .= '<input type="checkbox" class="cus-toggle parcat" data-child="child'.$kp.'" data-uncheck="uncheck'.$uc.$kp.'" name="kuis['.$p->kunct_idkuis.']" value="YA" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
 				$html .= '</div>'."\n";
 			}
 			elseif($p->kuis_tipe == 'LAIN'){
 				$html .= '<div class="col-10 mt-4">'."\n";
 				$html .= '<Label>'.$no.'. '.$p->title.'</Label>'."\n";
-				$html .= '<input type="hidden" name="kuis[]" value="TIDAK">'."\n";
+				$html .= '<input class="uncheck'.$uc.$kp.'" type="hidden" name="kuis['.$p->kunct_idkuis.']" value="TIDAK">'."\n";
 				$html .= '<textarea class="form-control child'.$kp.'" cols="30" rows="3" disabled></textarea>'."\n";
 				$html .= '</div>'."\n";
 				$html .= '<div class="col-2 mt-4">'."\n";
-				$html .= '<input type="checkbox" class="cus-toggle parcat" data-child="child'.$kp.'" name="kuis[]" value="YA" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
+				$html .= '<input type="checkbox" class="cus-toggle parcat" data-child="child'.$kp.'" data-uncheck="uncheck'.$uc.$kp.'" name="kuis['.$p->kunct_idkuis.']" value="YA" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
 				$html .= '</div>'."\n";
 			}
-			$html .= $this->_getChild($p->kunct_idkuis, $kp, $tab, 0);
+			$html .= $this->_getChild($p->kunct_idkuis, $kp, $tab, 0, $uc);
 		}
 	}
 		$data['lokasi'] = $this->m->getlokasi();
@@ -72,29 +74,22 @@ class Perjalanan extends CI_Controller
 		$this->load->view('tambah-perjalanan', $data);
 	}
 
-	function _getChild($id, $kp, $tab, $idchild){
+	function _getChild($id, $kp, $tab, $idchild, $uc){
 		$html = "";
 		$child = $this->m->getkuis($id);
 		if(count($child) > 0){
 			$idchild++;
 			$tab++;
 			foreach ($child as $kc => $c) {
+				$uc++;
 				if($c->kuis_tipe == 'CHECK'){
 					$col = 11 - $tab;
 					$html .= '<div class="col-'.$col.' offset-'.($tab - 1).'">'."\n";
-					$html .= '<Label>> '.$c->title.' child ke '.$idchild.'</Label>'."\n";
+					$html .= '<label>> '.$c->title.'</label>'."\n";
+					$html .= '<input class="uncheck'.$uc.$kc.'" type="hidden" name="kuis['.$c->kunct_idkuis.']" value="TIDAK">'."\n";
 					$html .= '</div>'."\n";
 					$html .= '<div class="col-2">'."\n";
-					$html .= '<input type="checkbox" class="cus-toggle subchild'.$idchild.$kp.' child'.$kp.' subparcat" data-child="subchild'.($idchild + 1).$kc.'" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
-					$html .= '</div>'."\n";
-				}
-				elseif($c->kuis_tipe == 'TEXT'){
-					$col = 11 - $tab;
-					$html .= '<div class="col-'.$col.' offset-'.($tab - 1).'">'."\n";
-					$html .= '<Label>> '.$c->title.' child ke '.$idchild.'</Label>'."\n";
-					$html .= '<textarea class="form-control subchild'.$kp.'" cols="30" rows="3" disabled></textarea>'."\n";
-					$html .= '</div>'."\n";
-					$html .= '<div class="col-2">'."\n";
+					$html .= '<input type="checkbox" class="cus-toggle subchild'.$idchild.$kp.' child'.$kp.' subparcat" name="kuis['.$c->kunct_idkuis.']" data-child="subchild'.($idchild + 1).$kc.'" data-uncheck="uncheck'.$uc.$kc.'" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
 					$html .= '</div>'."\n";
 				}
 				elseif($c->kuis_tipe == 'SELECT'){
@@ -107,10 +102,11 @@ class Perjalanan extends CI_Controller
 						);
 					}
 					$html .= '<div class="col-'.$col.' offset-'.($tab - 1).'">'."\n";
-					$html .= '<Label>> '.$title.' child ke '.$idchild.'</Label>'."\n";
+					$html .= '<label>> '.$title.'</label>'."\n";
 					$html .= '</div>'."\n";
 					$html .= '<div style="padding-right: 45px;" class="col-3">'."\n";
-					$html .= '<select class="custom-select custom-select-sm subchild'.$idchild.$kp.'" name="" disabled>'."\n";
+					$html .= '<input class="uncheck'.$uc.$kc.'" type="hidden" name="kuis['.$c->kunct_idkuis.']" value="TIDAK">'."\n";
+					$html .= '<select class="custom-select custom-select-sm subchild'.$idchild.$kp.'" name="kuis['.$c->kunct_idkuis.']" disabled required>'."\n";
 					$html .= '<option value="">-- '.$title.' --</option>'."\n";
 					foreach ($option as $o) {
 						$html .= '<option value="'.$o.'">'.$o.'</option>'."\n";
@@ -121,16 +117,21 @@ class Perjalanan extends CI_Controller
 				elseif($c->kuis_tipe == 'LAIN'){
 					$col = 11 - $tab;
 					$html .= '<div class="col-'.$col.' offset-'.($tab - 1).'">'."\n";
-					$html .= '<Label>> '.$c->title.' child ke '.$idchild.'</Label>'."\n";
-					$html .= '<textarea class="form-control subchild'.$kc.'" cols="30" rows="3" disabled></textarea>'."\n";
+					$html .= '<label>> '.$c->title.'</label>'."\n";
+					$html .= '<input class="uncheck'.$uc.$kc.'" type="hidden" name="kuis['.$c->kunct_idkuis.']" value="TIDAK">'."\n";
+					$html .= '<textarea class="form-control subchild'.$kc.'" name="kuis['.$c->kunct_idkuis.']" cols="30" rows="3" disabled></textarea>'."\n";
 					$html .= '</div>'."\n";
 					$html .= '<div class="col-2">'."\n";
-					$html .= '<input type="checkbox" class="cus-toggle subchild'.$idchild.$kp.' child'.$kp.' subparcat" data-child="subchild'.$kc.'" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
+					$html .= '<input type="checkbox" class="cus-toggle subchild'.$idchild.$kp.' child'.$kp.' subparcat" name="kuis['.$c->kunct_idkuis.']" data-child="subchild'.$kc.'" data-uncheck="uncheck'.$uc.$kc.'" data-toggle="toggle" data-size="sm" data-on="YA" data-off="TIDAK" disabled>'."\n";
 					$html .= '</div>'."\n";
 				}
-				$html .= $this->_getChild($c->kunct_idkuis, $kc, $tab, $idchild);
+				$html .= $this->_getChild($c->kunct_idkuis, $kc, $tab, $idchild, $uc);
 			}
 		}
 		return $html;
+	}
+
+	function add_action(){
+		echo json_encode($this->input->post('kuis'));
 	}
 }

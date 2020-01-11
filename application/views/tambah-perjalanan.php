@@ -16,7 +16,7 @@ require_once('header.php');
                 </div>
             <?php } ?>
             <div class="col-md-8 offset-md-2">
-                <form style="min-height: 400px;" action="<?php echo base_url('perjalanan/add'); ?>" method="post">
+                <form style="min-height: 400px;" action="<?php echo base_url('perjalanan/add_action'); ?>" method="post">
                     <div class="row mb-2">
                         <div class="col-6">
                             <h3>Silahkan pilih lokasi.</h3>
