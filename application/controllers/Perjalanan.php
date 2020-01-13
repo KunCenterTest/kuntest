@@ -40,7 +40,7 @@ class Perjalanan extends CI_Controller
 		$getpaystat = $this->m->getpaystat($email);
 		if ($getpaystat > 0) {
 			$data['keneg'] = $this->mb->getkenegaraan($email);
-			$data['perjalanan'] = $this->m->getperjalanan($where);
+			$data['perjalanan'] = $this->m->getperjalanan($where, '', 0);
 			$this->load->view('payment', $data);
 		} else {
 			$html = "";

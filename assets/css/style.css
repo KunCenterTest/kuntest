@@ -2899,10 +2899,11 @@ button.button {
   }
 }
 
-.txt-scd, .txt-scd a{
+.txt-scd, .txt-scd a {
   color: #C76B24;
 }
-.txt-scd a:hover{
+
+.txt-scd a:hover {
   font-weight: 700;
 }
 

@@ -33,7 +33,7 @@ class M_perjalanan extends CI_Model
 	{
 		$where = array('kunct_email' => $email, 'kunct_stat' => 'ON', 'payment_stat' => 'NO');
 		$this->db->where($where);
-		$pay = $this->db->get('perjalanan')->row();
+		$pay = $this->db->get('perjalanan')->result();
 		return count($pay);
 	}
 

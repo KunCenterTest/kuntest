@@ -175,6 +175,46 @@ require_once('header.php');
                         YES
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col mt-3">
+                        <strong>Pertanyaan</strong>
+                    </div>
+                    <div class="col-1 mt-3">
+                        YES
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 30px;" class="col">
+                        Pertanyaan Child 1
+                    </div>
+                    <div class="col-1">
+                        YES
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 60px;" class="col">
+                        Pertanyaan Child 2
+                    </div>
+                    <div class="col-1">
+                        YES
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 90px;" class="col">
+                        Pertanyaan Child 3
+                    </div>
+                    <div class="col-1">
+                        YES
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 120px;" class="col">
+                        Pertanyaan Child 4
+                    </div>
+                    <div class="col-1">
+                        YES
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Selesai</button>
