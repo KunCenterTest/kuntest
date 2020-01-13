@@ -11,6 +11,14 @@ class M_biodata extends CI_Model
 		return $this->db->get('user')->result();
 	}
 
+	function getkenegaraan($email)
+	{
+		$where = array('kunct_email' => $email, 'kunct_stat' => 'ON');
+		$this->db->where($where);
+		$user = $this->db->get('user')->row();
+		return $user->kenegaraan;
+	}
+
 	function update_user($table, $data, $email)
 	{
 		$this->db->where('kunct_email', $email);

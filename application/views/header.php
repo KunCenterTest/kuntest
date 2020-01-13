@@ -45,7 +45,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perjalanan</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('perjalanan/add_perjalanan'); ?>">Tambah Perjalanan</a>
-                                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('perjalanan'); ?>">Historty Perjalanan</a>
+                                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('perjalanan'); ?>">History Perjalanan</a>
                                     </ul>
                                 </li>
                             <?php } ?>
