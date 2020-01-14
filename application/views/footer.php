@@ -120,6 +120,7 @@
             var tgldp = $('#dp');
             var parcat = $('.parcat');
             var subparcat = $('.subparcat');
+            var btn = $('.btn-modal');
 
             $('.dspn').css('display', 'none');
 
@@ -172,6 +173,33 @@
                             $(this).prop('disabled', false);
                         });
                     }
+                }
+            });
+
+            btn.click(function() {
+                if ($(this).attr('data-perjl')) {
+                    var id = $(this).attr('data-perjl');
+                    $.ajax({
+                        url: '<?php echo base_url('perjalanan/detilperjl'); ?>',
+                        method: 'post',
+                        data: {
+                            id: id
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log(response.data);
+                            var len = response.length;
+
+                            if (len > 0) {
+                                // alert('DATA DITEMUKAN');
+                                $('.modal-body').html(response.data);
+
+                            } else {
+                                alert('DATA TIDAK DITEMUKAN');
+                            }
+
+                        }
+                    });
                 }
             });
 

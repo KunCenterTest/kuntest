@@ -48,7 +48,7 @@ require_once('header.php');
                                 <td><?php echo $klinik; ?></td>
                                 <td><?php echo $lokasi; ?></td>
                                 <td><?php echo $p->tgl; ?></td>
-                                <td width="15%"><button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#modal">preview</button></td>
+                                <td width="15%"><button class="btn btn-sm btn-primary btn-modal" data-perjl="<?php echo $p->kunct_idperjalanan; ?>" data-toggle="modal" data-target="#modal">preview</button></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -87,134 +87,7 @@ require_once('header.php');
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <strong>Pertanyaan</strong>
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 30px;" class="col">
-                        Pertanyaan Child 1
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mt-3">
-                        <strong>Pertanyaan</strong>
-                    </div>
-                    <div class="col-1 mt-3">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 30px;" class="col">
-                        Pertanyaan Child 1
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 60px;" class="col">
-                        Pertanyaan Child 2
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 90px;" class="col">
-                        Pertanyaan Child 3
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mt-3">
-                        <strong>Pertanyaan</strong>
-                    </div>
-                    <div class="col-1 mt-3">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 30px;" class="col">
-                        Pertanyaan Child 1
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 60px;" class="col">
-                        Pertanyaan Child 2
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 90px;" class="col">
-                        Pertanyaan Child 3
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 120px;" class="col">
-                        Pertanyaan Child 4
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mt-3">
-                        <strong>Pertanyaan</strong>
-                    </div>
-                    <div class="col-1 mt-3">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 30px;" class="col">
-                        Pertanyaan Child 1
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 60px;" class="col">
-                        Pertanyaan Child 2
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 90px;" class="col">
-                        Pertanyaan Child 3
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="padding-left: 120px;" class="col">
-                        Pertanyaan Child 4
-                    </div>
-                    <div class="col-1">
-                        YES
-                    </div>
-                </div>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Selesai</button>

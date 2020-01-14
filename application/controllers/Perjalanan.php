@@ -23,6 +23,75 @@ class Perjalanan extends CI_Controller
 		$this->load->view('list-perjalanan', $data);
 	}
 
+	function detilperjl()
+	{
+		$html = "";
+		$mt = '';
+		$id = $this->input->post('id');
+		$email = $this->session->userdata('email');
+		$where = array('kunct_email' => $email, 'kunct_stat' => 'ON', 'kunct_idperjalanan' => $id);
+		$perjalanan = $this->m->getperjalanan($where, '', 0);
+		foreach ($perjalanan as $perjl) {
+			$jawaban = $perjl->value;
+		}
+		$jawaban = json_decode($jawaban);
+		$parent = $this->m->getkuis(0);
+		if (count($parent) > 0) {
+			foreach ($parent as $kp => $p) {
+				if ($kp > 0) {
+					$mt = 'mt-3';
+				}
+				foreach ($jawaban as $kj => $j) {
+					if ($kj == $p->kunct_idkuis) {
+						$html .= '<div class="row">' . "\n";
+						$html .= '<div style="border-bottom: 1px #ebebeb solid;" class="col ' . $mt . ' pt-3">' . "\n";
+						$html .= '<label><strong>' . $p->title . '</strong></label>' . "\n";
+						$html .= '</div>' . "\n";
+						$html .= '<div class="col-2 ' . $mt . ' pt-3">' . "\n";
+						$html .= '<label>' . $j . '</label>' . "\n";
+						$html .= '</div>' . "\n";
+						$html .= '</div>' . "\n";
+					}
+				}
+				$html .= $this->_getdtlChild($p->kunct_idkuis, $kp, $email, $id, 0);
+			}
+		}
+		$data['length'] = count($html);
+		$data['data'] = $html;
+		echo json_encode($data);
+	}
+
+	function _getdtlChild($idk, $kp, $email, $id, $tab)
+	{
+		$html = "";
+		$child = $this->m->getkuis($idk);
+		$where = array('kunct_email' => $email, 'kunct_stat' => 'ON', 'kunct_idperjalanan' => $id);
+		$perjalanan = $this->m->getperjalanan($where, '', 0);
+		foreach ($perjalanan as $perjl) {
+			$jawaban = $perjl->value;
+		}
+		$jawaban = json_decode($jawaban);
+		if (count($child) > 0) {
+			$tab += 30;
+			foreach ($child as $kc => $c) {
+				foreach ($jawaban as $kj => $j) {
+					if ($kj == $c->kunct_idkuis) {
+						$html .= '<div class="row">' . "\n";
+						$html .= '<div style="padding-left: ' . $tab . 'px; border-bottom: 1px #ebebeb solid;" class="col pt-3">' . "\n";
+						$html .= '<label>' . $c->title . '</label>' . "\n";
+						$html .= '</div>' . "\n";
+						$html .= '<div class="col-2 pt-3">' . "\n";
+						$html .= '<label>' . $j . '</label>' . "\n";
+						$html .= '</div>' . "\n";
+						$html .= '</div>' . "\n";
+					}
+				}
+				$html .= $this->_getdtlChild($c->kunct_idkuis, $kc, $email, $id, $tab);
+			}
+		}
+		return $html;
+	}
+
 	function add_perjalanan()
 	{
 		$biodata = $this->mb->getBiodata($this->session->userdata('email'));
