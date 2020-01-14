@@ -56,7 +56,7 @@ class Perjalanan extends CI_Controller
 				$html .= $this->_getdtlChild($p->kunct_idkuis, $kp, $email, $id, 0);
 			}
 		}
-		$data['length'] = count($html);
+		$data['length'] = count($jawaban);
 		$data['data'] = $html;
 		echo json_encode($data);
 	}
