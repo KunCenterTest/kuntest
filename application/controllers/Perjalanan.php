@@ -76,9 +76,15 @@ class Perjalanan extends CI_Controller
 			foreach ($child as $kc => $c) {
 				foreach ($jawaban as $kj => $j) {
 					if ($kj == $c->kunct_idkuis) {
+						if($c->kuis_tipe == 'SELECT'){
+							$explode = explode('~', $c->title);
+							$title = $explode[0];
+						}else{
+							$title = $c->title;
+						}
 						$html .= '<div class="row">' . "\n";
 						$html .= '<div style="padding-left: ' . $tab . 'px; border-bottom: 1px #ebebeb solid;" class="col pt-3">' . "\n";
-						$html .= '<label>' . $c->title . '</label>' . "\n";
+						$html .= '<label>' . $title . '</label>' . "\n";
 						$html .= '</div>' . "\n";
 						$html .= '<div class="col-2 pt-3">' . "\n";
 						$html .= '<label>' . $j . '</label>' . "\n";
